@@ -40,23 +40,9 @@ def events_for_modThree():
     return [Event("e0"), Event("e1")]
 
 @pytest.fixture
-def fsm_modThree_not_fully_trained(states_for_modThree, events_for_modThree):
-    """Fixture for a modThree FSM instance."""
-    fsm_instance = FSM(states_for_modThree, events_for_modThree, states_for_modThree[0])
-    s0, s1, s2 = states_for_modThree
-    e0, e1 = events_for_modThree
-
-    # Define transitions for modThree FSM
-    fsm_instance.add_transition(s0, e0, s0)
-    fsm_instance.add_transition(s0, e1, s1)    
-    fsm_instance.add_transition(s1, e1, s0)    
-    fsm_instance.add_transition(s2, e1, s2)
-
-    return fsm_instance
-
-@pytest.fixture
-def fsm_modThree_fully_trained(states_for_modThree, events_for_modThree):
-    """Fixture for a modThree FSM instance."""
+def fsm_modThree(states_for_modThree, events_for_modThree):
+    """Fixture for a modThree FSM instance. 
+       This is the example of ‘mod-three’ procedure"""
     fsm_instance = FSM(states_for_modThree, events_for_modThree, states_for_modThree[0])
     s0, s1, s2 = states_for_modThree
     e0, e1 = events_for_modThree
