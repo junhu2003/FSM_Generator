@@ -41,7 +41,7 @@ class FSM:
 
     def add_transition(self, start_state: State, event: Event, next_state: State):
         """Adds a transition to the FSM."""
-        if start_state not in self._states:
+        if start_state not in self._states:            
             raise ValueError(f"Start state {start_state} is not a valid state for this FSM.")
         if event not in self._events:
             raise ValueError(f"Event {event} is not a valid event for this FSM.")
