@@ -4,6 +4,8 @@ from FSM_Generator.state import State
 from FSM_Generator.event import Event
 from FSM_Generator.fsm import FSM
 
+from ModThreeFSM.ModThreeFSM import ModThreeFSM
+
 
 @pytest.fixture
 def states():
@@ -56,3 +58,12 @@ def fsm_modThree(states_for_modThree, events_for_modThree):
     fsm_instance.add_transition(s2, e1, s2)
 
     return fsm_instance
+
+@pytest.fixture
+def mod_three_fsm():
+    """Provides a fresh instance of the ModThreeFSM for each test.
+
+    This fixture creates a new object of the ModThreeFSM class before each test
+    that requests it, ensuring a clean and isolated test environment.
+    """
+    return ModThreeFSM()
